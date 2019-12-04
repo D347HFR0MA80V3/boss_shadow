@@ -1,12 +1,14 @@
-Role Name
-=========
+init_splunk_core
+================
 
-A brief description of the role goes here.
+A role that will initialize (build) Splunk Enterprise on the instances that have
+been built in your cloud environment.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- RHEL like compute instance(s)
+- Working connection from compute instance to splunk.com to download the bits
 
 Role Variables
 --------------
@@ -18,21 +20,32 @@ Dependencies
 
 A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
-Example Playbook
-----------------
+Example Launch Playbook
+-----------------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+- hosts: "{{ target }}"
+  become: yes
+  become_user: root
+  become_method: sudo
+  gather_facts: yes
+  vars_prompt:
+    - name: "target"
+      prompt: "Target group(s) or host(s)?"
+      private: no
+      default: all
+  roles:
+    - init_splunk_core
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+- Lee Goodrich https://github.com/D347HFR0MA80V3
