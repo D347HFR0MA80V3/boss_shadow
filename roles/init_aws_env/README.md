@@ -20,14 +20,21 @@ Dependencies
 
 No other role dependancies at this time.
 
-Example Playbook
-----------------
+Launch Playbook
+---------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 ```yaml
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+- hosts: "{{ target }}"
+  become: yes
+  become_method: sudo
+  vars_prompt:
+    - name: "target"
+      prompt: "Host that will execute the AWS build commands... defaults to ->"
+      private: no
+      default: localhost
+  roles:
+    - init_aws_env
 ```
 
 License
