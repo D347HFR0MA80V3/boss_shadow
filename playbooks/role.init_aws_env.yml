@@ -1,0 +1,11 @@
+#Playbook... import and run the init_aws_role
+- hosts: "{{ target }}"
+  become: yes
+  become_method: sudo
+  vars_prompt:
+    - name: "target"
+      prompt: "Host that will execute the AWS build commands... defaults to ->"
+      private: no
+      default: localhost
+  roles:
+    - init_aws_env
