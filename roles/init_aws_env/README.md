@@ -9,6 +9,7 @@ Requirements
 
 - AWS account with generated keys for Ansible to use
 - boto3
+- Ansible 2.8
 
 Role Variables
 --------------

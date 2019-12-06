@@ -8,4 +8,3 @@ Documentation for the collection.
 - Sean ?.      https://github.com/gopye
 - Dan L.       https://github.com/Life-D3ath 
 - Dan R.       https://github.com/droberson
-
