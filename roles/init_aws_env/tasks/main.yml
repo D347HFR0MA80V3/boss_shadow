@@ -1,2 +1,10 @@
----
 # tasks file for init_ec2_hosts
+
+- include: build_vpc.yml
+  tags: build_vpc
+
+- include: build_iam.yml
+  tags: build_iam
+
+- include: build_ec2.yml
+  tags: build_ec2.yml
