@@ -13,7 +13,10 @@
 [Role - init_bots_v2](./roles/init_bots_v2/README.md)
 
 ## Collaborators
-Lee G.       https://github.com/D347HFR0MA80V3
-Sean D.      https://github.com/gopye
-Dan L.       https://github.com/Life-D3ath 
-Dan R.       https://github.com/droberson
+Lee G --> https://github.com/D347HFR0MA80V3
+
+Sean D --> https://github.com/gopye
+
+Dan L --> https://github.com/Life-D3ath 
+
+Dan R --> https://github.com/droberson
