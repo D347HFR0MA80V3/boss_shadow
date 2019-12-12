@@ -9,6 +9,9 @@ Our minimum viable product (mvp) will initialize a secure AWS environment, insta
 Splunk on one or more Linux EC2 instances, install BOTS components and data, and
 finally distribute login credentials to players and teams.
 
+Additionally... we will provide a playbook to teardown all of the components after
+the CTF has been completed.
+
 ## Required Technology and Installs
 
 - Ansible >= 2.8
