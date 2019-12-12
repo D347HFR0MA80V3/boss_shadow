@@ -1,6 +1,6 @@
 # Ansible Co11ection - B0ss Shad0w
 
-## Documentation for the collection.
+## Collection Documentation.
 
 [Getting Started](./docs/getting_started.md)
 
