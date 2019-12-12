@@ -12,6 +12,8 @@
 
 [Role - init_bots_v2](./roles/init_bots_v2/README.md)
 
+[Contribution Guidelines](./docs/contibution_guidelines.md)
+
 ## Collaborators
 Lee G --> https://github.com/D347HFR0MA80V3
 
