@@ -1,4 +1,4 @@
-# Ansible Collection - B0ss Shad0w
+# Ansible Co11ection - B0ss Shad0w
 
 ## Documentation for the collection.
 
