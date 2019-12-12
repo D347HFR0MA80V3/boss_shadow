@@ -1,4 +1,4 @@
-# Ansible Collection - Boss Shadow
+# Ansible Collection - B0ss Shad0w
 
 ## Documentation for the collection.
 
