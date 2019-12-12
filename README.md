@@ -1,4 +1,4 @@
-# Ansible Collection - deathfromabove.boss_shadow
+# Ansible Collection - Boss Shadow
 
 ## Documentation for the collection.
 
