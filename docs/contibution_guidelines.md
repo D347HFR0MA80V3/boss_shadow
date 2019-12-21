@@ -3,28 +3,21 @@ Contribution Guidelines
 
 Regardless of skill sets and expierience, don't hesitate to reach out and ask how to contribute. Basic guidelines are below but are no means a limitation to contribution. Any contibutions will be reviewed and style or sytax edits can be provided.
 
-Project Owner Github
-
-https://github.com/D347HFR0MA80V3
-
-Shad0w Synd1cate Discord
-
-https://discord.gg/x547Wmb
-
 
 Table of Contents
------------------
+=================
 
 * [Project Goals](#project%20goals)
 * [General](#general)
-    * [Documentation](#documentation)
-        * [Markdown](#markdown)
-    * [Ansible](#ansible)
-        * [YAML](#yaml)
-        * [Role Structure](#role%20structure)
+* [Documentation Guide](#documentation%20guide)
+    * [Markdown](#markdown)
+* [Ansible](#ansible)
+    * [YAML](#yaml)
+    * [Role Structure](#role%20structure)
+* [Splunk](#splunk)
 
 Project Goals
--------------
+=============
 
 Boss Shadow is a project combining cloud compute, splunk enterprise, and ansible automation to deploy out a working Splunk Boss of the SOC CTF competition.
 
@@ -35,14 +28,34 @@ Additionally, provide playbooks to teardown all of the components after the CTF 
 General
 =======
 
-Documentation
--------------
+Project Owner Github
+
+https://github.com/D347HFR0MA80V3
+
+Shad0w Synd1cate Homepage - Join our Discord
+
+https://shad0wsynd1cate.org/
+
+Documentation Guide
+===================
+
+As we build v.1 of the project documentation under the project root is encouraged to be written in markdown. After initial product is achieved additional or improved documentation in other forms will be considered.
 
 Markdown
 --------
 
+Use the same markdown header styles that are found in the default role README created by `ansible-role init`. Also use inline code and code blocks whenever adding code samples to documentation.
+
+```md
+This is a section header
+========================
+
+This is a subsection header
+---------------------------
+```
+
 Ansible
--------
+=======
 
 YAML
 ----
@@ -72,3 +85,11 @@ Example `tasks/main.yml`
 These includes would not only tell the role to load these tasks at runtime but also control the run order of segments of code. The tags allow testers to target single tasks or pieces of code from the command line to save development cycles.
 
 Example: `ansible-playbook role.init_aws_env.yml --tags 'foo,baz'` would run the launch init_aws_env role playbook but isolate the run to the tasks with the foo and baz tags.
+
+
+Splunk
+======
+
+The initial project architecture will utilize an all in one Splunk server. This means a large compute resource is needed to run the actual CTF but small instances can be used for testing or home use. Install and setup guides for Splunk are linked below. The project will be installing Splunk on a CentOS 7 image.
+
+https://docs.splunk.com/Documentation/Splunk/latest/Installation/Whatsinthismanual
