@@ -7,13 +7,13 @@ Regardless of skill sets and expierience, don't hesitate to reach out and ask ho
 Table of Contents
 =================
 
-* [Project Goals](#project%20goals)
+* [Project Goals](#project-goals)
 * [General](#general)
-* [Documentation Guide](#documentation%20guide)
+* [Documentation Guide](#documentation-guide)
     * [Markdown](#markdown)
 * [Ansible](#ansible)
     * [YAML](#yaml)
-    * [Role Structure](#role%20structure)
+    * [Role Structure](#role-structure)
 * [Splunk](#splunk)
 
 Project Goals
