@@ -28,9 +28,9 @@ Additionally, provide playbooks to teardown all of the components after the CTF 
 General
 =======
 
-Project Owner Github
+Project Issues
 
-https://github.com/D347HFR0MA80V3
+https://github.com/D347HFR0MA80V3/boss_shadow/issues
 
 Shad0w Synd1cate Homepage - Join our Discord
 
