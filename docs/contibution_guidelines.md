@@ -13,7 +13,10 @@ Table of Contents
     * [Markdown](#markdown)
 * [Ansible](#ansible)
     * [YAML](#yaml)
+    * [Task Naming aka Action Lines](#task-naming-aka-action-lines)
     * [Role Structure](#role-structure)
+    * [Variable Naming](#variable-naming)
+* [AWS](#aws)
 * [Splunk](#splunk)
 
 Project Goals
@@ -88,9 +91,10 @@ Role Structure
 
 The roles already framed in the project were initialized from the Ansible 2.9 role init command. The only paticular practice recommended is how to use the main file of `roles/<role_name>/tasks/`. For our project it is preferred that the only code that lives in main, is `include:` statements that point to other tasks files in the same directory. The includes should utilize tags that are named after the corresponding task file.
 
-Example `tasks/main.yml`
 
 ```yml
+# Example tasks/main.yml
+
 - include: foo.yml
   tags: foo
 
@@ -113,11 +117,18 @@ Most variables for this project can be flattened. Avoid using extrenous list or 
 Variables should be prefixed with a name that points to the role it is from EG...
 
 ```yaml
+# Example vars file. Vars should be defined in role/defaults/main.yml at a minimum.
+
 init_aws_env_foo_var: <value>
 init_splunk_core_bar_var: <value>
 ```
 
 Variables should also use underscores to breakup the variable name.
+
+AWS
+===
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh erat, maximus ut risus et, auctor efficitur ligula. Nunc molestie mattis eleifend. Sed id tempus ligula, eget finibus nulla. Sed sollicitudin, ex ac elementum euismod, eros nunc imperdiet nunc, sed molestie massa sapien quis libero. In mauris mi, pellentesque et enim quis, pulvinar porttitor metus. Donec interdum ornare est, luctus condimentum turpis condimentum ut. Fusce mattis metus nec risus luctus, nec imperdiet enim blandit. Integer id urna nibh. Phasellus sed consectetur sem, ut iaculis purus. Nam nec massa et sapien hendrerit auctor. Vivamus dolor leo, pretium eu felis in, viverra mattis dolor. Nunc accumsan accumsan volutpat. Ut euismod dui dolor, vel ornare diam porttitor id. Curabitur lobortis neque quam, quis tempor nunc euismod sit amet. Mauris id mauris tristique, accumsan urna ac, ornare odio.
 
 Splunk
 ======
