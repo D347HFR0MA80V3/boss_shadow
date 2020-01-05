@@ -1,0 +1,4 @@
+# Task... set server based Splunk settings like THP and ULIMITS
+
+- name: foo
+

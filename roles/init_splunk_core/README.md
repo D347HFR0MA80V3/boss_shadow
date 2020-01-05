@@ -8,7 +8,24 @@ Requirements
 ------------
 
 - RHEL like compute instance(s)
+- Foo amounts of attached storage on the compute instances
 - Working connection from compute instance to splunk.com to download the bits
+
+Role Tasks
+----------
+
+1. Create the Splunk service user
+    1. Create a user named `splunk`
+    2. Set a strong password for the user
+    3. Make the splunk a service user ie `uid < 1000`
+2. Set THP and server ULIMITS according to Splunk docs
+    1. Foo
+    2. Bar
+3. Install Splunk Enterprise on the host
+    1. Verify `wget` utility is installed
+    2. WGET the correct Splunk .tgz from splunk.com
+    3. Unpack the tarball in the `/opt` directory
+    4. Bootstrap the splunk service with the splunk user
 
 Role Variables
 --------------

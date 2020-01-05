@@ -86,6 +86,17 @@ These includes would not only tell the role to load these tasks at runtime but a
 
 Example: `ansible-playbook role.init_aws_env.yml --tags 'foo,baz'` would run the launch init_aws_env role playbook but isolate the run to the tasks with the foo and baz tags.
 
+Variable Naming
+---------------
+
+Most variables for this project can be flattened. Avoid using extrenous list or dictionary vars unless it makes sense to.
+
+Variables should be prefixed with a name that points to the role it is from ie...
+
+- aws_env_foo_var
+- splunk_core_bar_var
+
+Variables should also use underscores to breakup the variable name.
 
 Splunk
 ======
