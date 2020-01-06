@@ -1,4 +1,4 @@
-#Playbook... import and run the init_aws_role
+# Playbook... import and run the init_aws_role
 - hosts: "{{ target }}"
   become: yes
   become_method: sudo

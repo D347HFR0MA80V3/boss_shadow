@@ -1,0 +1,12 @@
+- hosts: "{{ target }}"
+  become: yes
+  become_method: sudo
+  vars_prompt:
+    - name: "target"
+      prompt: "Target host to use for initializing BOTS v2 CTF... defaults to ->"
+      private: no
+      default: localhost
+  roles:
+    - init_aws_env
+    - init_splunk_core
+    - init_bots_v2
