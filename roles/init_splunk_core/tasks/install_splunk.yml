@@ -1,3 +1,9 @@
 # Task... install splunk according to docs
 
-- name: foo
+- name: install_splunk - Verify wget utility is installed on the system
+
+- name: install_splunk - Get the splunk tarball from splunk.com
+
+- name: install_splunk - Unarchive the .tgz file in /opt directory
+
+- name: install_splunk - Start splunk and accept license agreement

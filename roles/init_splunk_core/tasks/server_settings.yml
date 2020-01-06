@@ -1,4 +1,5 @@
 # Task... set server based Splunk settings like THP and ULIMITS
 
-- name: foo
+- name: server_settings - Set system Transparent Huge Pages
 
+- name: server_settings - Set system ULIMITS
