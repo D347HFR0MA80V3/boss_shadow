@@ -1,1 +1,3 @@
-#Task... Build a VPC in AWS
+# Task... Build a VPC in AWS to house all our resources
+
+- name: build_vpc - Do something

@@ -1,0 +1,10 @@
+# Tasks list... include or import tasks here
+
+- include: create_user.yml
+  tags: create_user
+
+- include: server_settings.yml
+  tags: server_settings
+
+- include: install_splunk.yml
+  tags: install_splunk

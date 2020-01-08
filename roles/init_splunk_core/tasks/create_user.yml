@@ -1,0 +1,9 @@
+# Task... create the splunk user and settings
+
+- name: create_user - Run useradd command to create the splunk service user
+
+- name: create_user - Generate a random secret and store as variable
+
+- name: create_user - Change the splunk service user password to random secret
+
+- name: create_user - Set the splunk user UID to less than 1000... maybe 999

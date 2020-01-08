@@ -1,0 +1,9 @@
+- hosts: "{{ target }}"
+  become: yes
+  become_method: sudo
+  vars_prompt:
+    - name: "target"
+      prompt: "Target host to install and start Splunk on"
+      private: no
+  roles:
+    - init_splunk_core
