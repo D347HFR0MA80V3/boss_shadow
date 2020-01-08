@@ -17,6 +17,8 @@ Table of Contents
     * [Role Structure](#role-structure)
     * [Variable Naming](#variable-naming)
 * [AWS](#aws)
+    * [Ansible Setup](#ansible-setup)
+    * [EC2 Getting Started](#ec2-getting-started)
 * [Splunk](#splunk)
 
 Project Goals
@@ -128,7 +130,25 @@ Variables should also use underscores to breakup the variable name.
 AWS
 ===
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nibh erat, maximus ut risus et, auctor efficitur ligula. Nunc molestie mattis eleifend. Sed id tempus ligula, eget finibus nulla. Sed sollicitudin, ex ac elementum euismod, eros nunc imperdiet nunc, sed molestie massa sapien quis libero. In mauris mi, pellentesque et enim quis, pulvinar porttitor metus. Donec interdum ornare est, luctus condimentum turpis condimentum ut. Fusce mattis metus nec risus luctus, nec imperdiet enim blandit. Integer id urna nibh. Phasellus sed consectetur sem, ut iaculis purus. Nam nec massa et sapien hendrerit auctor. Vivamus dolor leo, pretium eu felis in, viverra mattis dolor. Nunc accumsan accumsan volutpat. Ut euismod dui dolor, vel ornare diam porttitor id. Curabitur lobortis neque quam, quis tempor nunc euismod sit amet. Mauris id mauris tristique, accumsan urna ac, ornare odio.
+Ansible Setup
+-------------
+
+Taken from the ansible docs...
+
+Requirements for the AWS modules are minimal.
+
+All of the modules require and are tested against recent versions of boto. You’ll need this Python module installed on your control machine. Boto can be installed from your OS distribution or python’s “pip install boto”.
+
+Whereas classically ansible will execute tasks in its host loop against multiple remote machines, most cloud-control steps occur on your local machine with reference to the regions to control.
+
+See here...
+
+https://docs.ansible.com/ansible/latest/scenario_guides/guide_aws.html
+
+EC2 Getting Started
+-------------------
+
+https://aws.amazon.com/ec2/getting-started/
 
 Splunk
 ======
