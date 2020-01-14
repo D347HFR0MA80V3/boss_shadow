@@ -1,5 +1,8 @@
 # tasks file for init_ec2_hosts
 
+- include: python.yml
+  tags: python
+
 - include: build_iam.yml
   tags: build_iam
 
