@@ -17,3 +17,4 @@ Splunk Boss of the SOC CTF build automation for Shad0w Synd1cate
 - Sean <---> https://github.com/gopye
 - Dan <----> https://github.com/droberson
 - Dan <----> https://github.com/Life-D3ath
+- Davis <--> 
