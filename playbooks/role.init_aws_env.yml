@@ -15,7 +15,7 @@
       private: no
     - name: "aws_secret_key"
       prompt: "Please enter a valid secret key for your AWS account"
-      private: no
+      private: yes
     - name: "iam_username"
       prompt: "Enter a name for the administrator IAM user"
     - name: "iam_temporary_password"
