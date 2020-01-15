@@ -3,18 +3,23 @@
   become: yes
   become_method: sudo
   vars_files:
-    - ./roles/vars/main.yml
+    - ../roles/init_aws_env/vars/main.yml
 
   vars_prompt:
     - name: "target"
       prompt: "Host that will execute the AWS build commands... defaults to ->"
       private: no
       default: localhost
-    - name: "aws_access_id"
-      prompt: "Please enter a valid Access ID for your AWS account"
+    - name: "aws_access_key"
+      prompt: "Please enter a valid Access key for your AWS account"
       private: no
     - name: "aws_secret_key"
       prompt: "Please enter a valid secret key for your AWS account"
-  
+      private: no
+    - name: "iam_username"
+      prompt: "Enter a name for the administrator IAM user"
+    - name: "iam_temporary_password"
+      prompt: "Please enter a temporary IAM user password"
+      
   roles:
-    - init_aws_env
+    - ../roles/init_aws_env

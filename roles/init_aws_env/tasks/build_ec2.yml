@@ -3,19 +3,21 @@
 #Uses variables from playbook to build EC2 instance(s)
 - name: build_ec2 - Create EC2 in VPC
   ec2:
-    assign_public_ip: {{ public_ip_yes_no }}
-    key_name: {{ ssh_key_name }}
-    image: {{ image_id }}
-    count: {{ instance_count }}
-    vpc_subnet_id: {{ vpc_subnet_id }}
-
-#Stores EC2 instance details in a temporary file
-
-- name: build_ec2 - Store instance details in temp
+    assign_public_ip: "{{ public_ip_yes_no }}"
+    key_name: "{{ ssh_key_name }}"
+    image: "{{ image_id }}"
+    count: "{{ instance_count }}"
+    vpc_subnet_id: "{{ vpc_subnet_id }}"
+    instance_type: "{{ instance_type }}"
+    wait: yes
+    group: "{{ group }}"
+    region: us-east-2
+    aws_secret_key: "{{ aws_secret_key }}"
+    aws_access_key: "{{ aws_access_key }}"
 
 #Uses EC2 instance deails to install software on instances(s)
-- name: build_ec2 - Install software
+#- name: build_ec2 - Install software
 
 #Tests connectivity on neccesary TCP/UDP ports
-- name: build_ec2 - Test Connections
-  include: ports.yml
+#- name: build_ec2 - Test Connections
+#  include: ports.yml
