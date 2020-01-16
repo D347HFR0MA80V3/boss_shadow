@@ -7,13 +7,14 @@ target: localhost
 
 # vars file for init_ec2_hosts
 public_ip_yes_no: yes
-ssh_key_name: splunk_1
-image_id: ami-0d542ef84ec55d71c
-instance_count: 1
+ssh_key_name: "{{ init_aws_ec2_ssh_key_name }}"
+image_id:  "{{ init_aws_image_id }}"
 vpc_subnet_id: subnet-94ddc6fc
-instance_type: t2.micro
+instance_type: "{{ init_aws_instance_type }}"
 wait: yes
 group: default
+region: "{{ init_aws_region_id }}"
+instance_count: "{{ init_aws_instance_count }}"
 
 # Networking 
 test_ports: [8000]

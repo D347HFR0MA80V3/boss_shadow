@@ -11,19 +11,34 @@
       private: no
       default: localhost
 
-#    - name: "aws_access_key"
-#      prompt: "Please enter a valid Access key for your AWS account"
-#      private: no
-#      required: no
+    - name: "aws_access_key"
+      prompt: "Please enter a valid Access key for your AWS account"
+      private: no
+      required: no
 
-#    - name: "aws_secret_key"
-#      prompt: "Please enter a valid secret key for your AWS account"
-#      private: yes
-#      no_log: yes
-#      required: no
+    - name: "aws_secret_key"
+      prompt: "Please enter a valid secret key for your AWS account"
+      private: yes
+      no_log: yes
+      required: no
 
+    - name: "init_aws_env_sec_group"
+      prompt: "Enter the name of the existing or new AWS EC2 security group that will make TCP ports 8000 and 22 public.... defaults to->"
+      default: shadow-group
+      private: no
+    
+    - name: "init_aws_image_id"
+      prompt: "Please enter the AWS image ID you wish to use... defaults to->"
+      default: ami-0d542ef84ec55d71c
+      private: no
+    
+    - name: "init_aws_instance_type"
+      prompt: "Please enter the AWS instance type for these instances... defaults to->"
+      default: t2.micro
+    
     - name: "iam_username"
       prompt: "Enter a name for the administrator IAM user"
+
     - name: "iam_temporary_password"
       prompt: "Please enter a temporary IAM user password"
       

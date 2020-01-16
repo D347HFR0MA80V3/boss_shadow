@@ -1,3 +1,15 @@
 # Task... Build a VPC in AWS to house all our resources
 
-- name: build_vpc - 
+- name: build_vpc - Build AWS VPC for EC2 instances
+  ec2_vpc_net:
+    aws_secret_key: "{{ aws_secret_key }}"
+    aws_access_key: "{{ aws_access_key }}"
+    # TODO Check if this CIDR block can be used 
+    cidr_block: 172.69.0.0/21
+    region: "{{ init_aws_env_region }}"
+  register: "vpc_facts"
+
+  -debug: "{{ vpc_facts | json_query('[*].cidr_block_association_set'')}}"
+
+  set_fact:
+    init_vpc_id: "{{ vpc_facts | json_query('[*].id')}}"

@@ -1,5 +1,25 @@
 # Task... Build one or more EC2 instance(s) in the new VPC and test connections and ports
 # TODO Security group for port 8000 to 0.0.0.0/0
+- name: build_ec2 - Create or edit an AWS security group making TCP ports 8000 and 22 public
+  ec2_group:
+    name: "{{ init_aws_env_sec_group }}"
+    description: "This security group was created by boss_shadow. It opens TCP ports 22 and 8000 to 0.0.0.0/0 and ::/0"
+    region: "{{ init_aws_env_region }}"
+    vpc_id: "{{ init_vpc_id }}"
+    profile:
+    aws_secret_key: "{{ aws_secret_key }}"
+    aws_access_key: "{{ aws_access_key }}"
+    rules: 
+      - proto: tcp
+        from_port: 8000
+        to_port: 8000
+        cidr_ip: 0.0.0.0/0
+        rules_dsc: "Opens TCP 8000 (For splunk UI) to public"
+      - proto: tcp
+        from_port: 22
+        to_port 22:
+        cidr_ip: 0.0.0.0/0
+        rules_desc: "Opens SSH to public"
 
 - name: build_ec2 - Uses variables from playbook to build EC2 instance(s)
   ec2:
@@ -11,10 +31,10 @@
     instance_type: "{{ instance_type }}"
     wait: yes
     group: "{{ group }}"
-
-    region: us-east-2
+    region: "{{ region }}"
     aws_secret_key: "{{ aws_secret_key }}"
     aws_access_key: "{{ aws_access_key }}"
+
   register: ec2_details
 
 - name: build_ec2 - Set a fact with the returned public DNS of new EC2 host(s)
