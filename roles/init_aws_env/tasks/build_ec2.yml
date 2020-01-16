@@ -1,5 +1,5 @@
-#Task... Build one or more EC2 instance(s) in the new VPC and test connections and ports
-# TODO Open port 8000 security group for EC2
+# Task... Build one or more EC2 instance(s) in the new VPC and test connections and ports
+# TODO Security group for port 8000 to 0.0.0.0/0
 
 - name: build_ec2 - Uses variables from playbook to build EC2 instance(s)
   ec2:
@@ -11,17 +11,18 @@
     instance_type: "{{ instance_type }}"
     wait: yes
     group: "{{ group }}"
+
     region: us-east-2
     aws_secret_key: "{{ aws_secret_key }}"
     aws_access_key: "{{ aws_access_key }}"
-  register: foo
+  register: ec2_details
 
-- debug: var=foo
-
-- name: build_ec2 - Set a fact with the returned FQDN of new EC2 host(s)
+- name: build_ec2 - Set a fact with the returned public DNS of new EC2 host(s)
   set_fact:
-    build_ec2_fqdn: "{{ foo.fqdn }}"
+    build_ec2_pub_dns: "{{ ec2_details | json_query('instances[*].public_dns_name') }}"
 
-#Tests connectivity on neccesary TCP/UDP ports
-- name: build_ec2 - Test connections on port 8000
-  wait_for: host= "{{ build_ec2_fqdn }}" port=8000 timeout=10
+- name: build_ec2 - Test connections on port 22
+  wait_for: host= {{ item }} port=22 timeout=10
+  loop: "{{ build_ec2_pub_dns }}"
+
+  Stop your live share

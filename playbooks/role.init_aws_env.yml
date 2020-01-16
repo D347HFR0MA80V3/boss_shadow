@@ -11,14 +11,16 @@
       private: no
       default: localhost
 
-    - name: "aws_access_key"
-      prompt: "Please enter a valid Access key for your AWS account"
-      private: no
+#    - name: "aws_access_key"
+#      prompt: "Please enter a valid Access key for your AWS account"
+#      private: no
+#      required: no
 
-    - name: "aws_secret_key"
-      prompt: "Please enter a valid secret key for your AWS account"
-      private: yes
-      no_log: yes
+#    - name: "aws_secret_key"
+#      prompt: "Please enter a valid secret key for your AWS account"
+#      private: yes
+#      no_log: yes
+#      required: no
 
     - name: "iam_username"
       prompt: "Enter a name for the administrator IAM user"
