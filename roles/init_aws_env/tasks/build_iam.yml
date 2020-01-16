@@ -1,4 +1,11 @@
 # Task... Build an IAM group in AWS to handle user / admin access to our resouces
 
-- name: build_iam - Do something
+- name: build_iam - Create an IAM user
+  iam:
+    iam_type: user
+    name: "{{ iam_username }}"
+    state: present
+    password: "{{ iam_temporary_password }}"
 
+    
+    

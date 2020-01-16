@@ -1,0 +1,6 @@
+## tests all ports from "test_ports" variable
+- name: build_ec2 - test_ports.yml
+  wait_for:
+    port: "{{ item }}"
+    state: started
+  with_items: "{{ test_ports }}"

@@ -1,0 +1,99 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "NonResourceBasedReadOnlyPermissions",
+            "Action": [
+                "ec2:Describe*",
+                "ec2:CreateKeyPair",
+                "ec2:CreateSecurityGroup",
+                "iam:GetInstanceProfiles",
+                "iam:ListInstanceProfiles"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMPassroleToInstance",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:iam:: {{ iam_id_number }}:role/VPCLockDown"
+        },
+        {
+            "Sid": "AllowInstanceActions",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:RebootInstances",
+                "ec2:StopInstances",
+                "ec2:TerminateInstances",
+                "ec2:StartInstances",
+                "ec2:AttachVolume",
+                "ec2:DetachVolume"
+            ],
+            "Resource": "arn:aws:ec2:us-east-1:{{ iam_id_number }}:instance/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:InstanceProfile": "arn:aws:iam::{{ iam_id_number }}:instance-profile/VPCLockDown"
+                }
+            }
+        },
+        {
+            "Sid": "EC2RunInstances",
+            "Effect": "Allow",
+            "Action": "ec2:RunInstances",
+            "Resource": "arn:aws:ec2:us-east-1:{{ iam_id_number }}:instance/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:InstanceProfile": "arn:aws:iam::{{ iam_id_number }}:instance-profile/VPCLockDown"
+                }
+            }
+        },
+        {
+            "Sid": "EC2RunInstancesSubnet",
+            "Effect": "Allow",
+            "Action": "ec2:RunInstances",
+            "Resource": "arn:aws:ec2:us-east-1:{{ iam_id_number }}:subnet/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:vpc": "arn:aws:ec2:us-east-1:{{ iam_id_number }}:vpc/vpc-7bcd371e"
+                }
+            }
+        },
+        {
+            "Sid": "RemainingRunInstancePermissions",
+            "Effect": "Allow",
+            "Action": "ec2:RunInstances",
+            "Resource": [
+                "arn:aws:ec2:us-east-1:{{ iam_id_number }}:volume/*",
+                "arn:aws:ec2:us-east-1::image/*",
+                "arn:aws:ec2:us-east-1::snapshot/*",
+                "arn:aws:ec2:us-east-1:{{ iam_id_number }}:network-interface/*",
+                "arn:aws:ec2:us-east-1:{{ iam_id_number }}:key-pair/*",
+                "arn:aws:ec2:us-east-1:{{ iam_id_number }}:security-group/*"
+            ]
+        },
+        {
+            "Sid": "EC2VpcNonresourceSpecificActions",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DeleteNetworkAcl",
+                "ec2:DeleteNetworkAclEntry",
+                "ec2:DeleteRoute",
+                "ec2:DeleteRouteTable",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:DeleteSecurityGroup"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:vpc": "arn:aws:ec2:us-east-1:{{ iam_id_number }}:vpc/vpc-7bcd371e"
+                }
+            }
+        }
+    ]
+}
