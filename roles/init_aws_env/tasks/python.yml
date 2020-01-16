@@ -1,4 +1,4 @@
-##installs necessary packages
+##installs necessary packages for linux hosts
 - name: python.yml - install python2, pip, and boto
   package:
       state: present # required. Whether to install (C(present)), or remove (C(absent)) a package. Other states depend on the underlying package module, i.e C(latest).
@@ -9,3 +9,4 @@
      - python-pip
      - python-boto
 
+#? What if the person using this doesn't use linux

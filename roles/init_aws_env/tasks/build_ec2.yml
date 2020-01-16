@@ -1,7 +1,7 @@
 #Task... Build one or more EC2 instance(s) in the new VPC and test connections and ports
+# TODO Open port 8000 security group for EC2
 
-#Uses variables from playbook to build EC2 instance(s)
-- name: build_ec2 - Create EC2 in VPC
+- name: build_ec2 - Uses variables from playbook to build EC2 instance(s)
   ec2:
     assign_public_ip: "{{ public_ip_yes_no }}"
     key_name: "{{ ssh_key_name }}"
@@ -14,10 +14,14 @@
     region: us-east-2
     aws_secret_key: "{{ aws_secret_key }}"
     aws_access_key: "{{ aws_access_key }}"
+  register: foo
 
-#Uses EC2 instance deails to install software on instances(s)
-#- name: build_ec2 - Install software
+- debug: var=foo
+
+- name: build_ec2 - Set a fact with the returned FQDN of new EC2 host(s)
+  set_fact:
+    build_ec2_fqdn: "{{ foo.fqdn }}"
 
 #Tests connectivity on neccesary TCP/UDP ports
-#- name: build_ec2 - Test Connections
-#  include: ports.yml
+- name: build_ec2 - Test connections on port 8000
+  wait_for: host= "{{ build_ec2_fqdn }}" port=8000 timeout=10
