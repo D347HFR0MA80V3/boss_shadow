@@ -25,4 +25,3 @@
   wait_for: host= {{ item }} port=22 timeout=10
   loop: "{{ build_ec2_pub_dns }}"
 
-  Stop your live share
