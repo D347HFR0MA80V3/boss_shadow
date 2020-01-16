@@ -1,2 +1,21 @@
 ---
+#General vars
+target: localhost
+#vars for build_iam
+
+
+
 # vars file for init_ec2_hosts
+public_ip_yes_no: yes
+ssh_key_name: splunk_1
+image_id: ami-0d542ef84ec55d71c
+instance_count: 1
+vpc_subnet_id: subnet-94ddc6fc
+instance_type: t2.micro
+wait: yes
+group: default
+
+# Networking 
+test_ports: [8000]
+
+...
