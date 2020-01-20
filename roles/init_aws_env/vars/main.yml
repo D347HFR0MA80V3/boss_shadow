@@ -9,7 +9,7 @@ target: localhost
 public_ip_yes_no: yes
 ssh_key_name: "{{ init_aws_ec2_ssh_key_name }}"
 image_id:  "{{ init_aws_image_id }}"
-vpc_subnet_id: subnet-94ddc6fc
+vpc_subnet_id: "{{ vpc_subnet_id }}"
 instance_type: "{{ init_aws_instance_type }}"
 wait: yes
 group: default
